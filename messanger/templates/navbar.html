@@ -1,0 +1,22 @@
+
+<div class="navbar">
+    <div id="menu" class="menu">
+        <a id="menu_link" href="javascript:void(0)" onclick="menu_open()"><i style="color: #ffff;" class="fa-solid fa-bars"></i></a>
+        <div class="background-block" id="background-block">
+            <div id="options" class="options">
+                
+                <div class="options-container">
+                    <a  class="link close-link" href="javascript:void(0)" onclick="menu_close()"><i style="font-size: 25px;" class="fa-solid fa-arrow-left"></i></a>
+                    <div class="options-list">
+                        <a class="link" href=""><i id="icon" class="fa-solid fa-user"></i>{{request.user.username}}</a>
+                        <a class="link" href=""><i id="icon" class="fa-solid fa-plus"></i>Create Chat</a>
+                        <a class="link" href=""><i id="icon" class="fa-solid fa-user-group"></i>Friends</a>
+                        <a class="link" href="{% url 'logout' %}"><i id="icon" class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div onclick="menu_close()" id="empty-place"></div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/body.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/room-list.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/room.css' %}">
+    <script src="https://kit.fontawesome.com/c058a14f84.js" crossorigin="anonymous"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+    
+    {% block content %}
+
+    {% endblock content %}
+</body>
+
+<script>
+    function menu_open() {
+        block = document.getElementById("background-block");
+        empty = document.getElementById("empty-place");
+        options = document.getElementById("options");
+
+        options.style.width = "250px";
+        // width = window.getComputedStyle(document.querySelector('#options')).width;
+        
+        empty.style.display = "block";
+        empty.style.width = `calc(100vw - 250px)`
+
+        block.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        block.style.zIndex = "1";
+        
+    }
+
+
+    function menu_close() {
+        block = document.getElementById("background-block");
+        empty = document.getElementById("empty-place");
+        options = document.getElementById("options");
+
+        empty.style.width = "0";
+        empty.style.display = "none";
+
+        options.style.width = "0"
+        
+        block.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        block.style.zIndex = "-1";
+    }
+</script>
+</html>

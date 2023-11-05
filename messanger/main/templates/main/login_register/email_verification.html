@@ -1,0 +1,18 @@
+
+<div>
+    {% if status == 'success' %}
+    <div>Status: {{status}}</div>
+    <div>
+        <p>You've verificated your email, so you can use your account</p>
+    </div>
+    {% elif status == 'expired' %}
+    <div>Status: {{status}}</div>
+    <div>
+        <p>Verification link has expired</p>
+    </div>
+    {% else %}
+    <div>
+        <p>Verification link does not exist</p>
+    </div>
+    {% endif %}
+</div>

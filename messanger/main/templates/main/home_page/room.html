@@ -1,0 +1,62 @@
+<div class="room-block">
+    <div class="brief-info">
+        <div class="room-photo">
+            <img class="image-photo-info" src="{{room.avatar.url}}" alt="photo">
+        </div>
+        <div class="info-block">
+            <div class="info">
+                <div class="room-name">
+                    <span>{{room.name}}</span>
+                </div>
+                <div class="room-participants">
+                    <span>{{room.participants.count}} member{{room.participants.count|pluralize:'s'}}</span>
+                </div>
+            </div>
+            <div class="room-functions">
+                <div class="room-settings">
+                    <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="scroll-chat">
+            {% for message in room.message_set.all %}
+            <div class="message">
+                <div class="avatar">
+                    <img class="image-photo" src="{{message.host.avatar.url}}" alt="avatar">
+                </div>
+                <div class="message-content">
+
+                    <div class="message-author">
+                        <span class="message-creator">{{message.host.username}}</span>
+                        {% if message.updated > message.created  %}
+                        <span class="message-time">edited {{message.updated|date:"H:i"}}</span>
+                        {% else %}
+                        <span class="message-time">{{message.updated|date:"H:i"}}</span>
+                        {% endif %}
+                    </div>
+                    <div class="message-second-block">
+                        <div class="message-text">
+                            <span class="message-body">{{message.body}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="message-options" id="message-options">
+                    
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="input">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-area">
+                <input name="body" maxlength="500" class="input-text" type="text" placeholder="Write your message here...">
+                <button class="send-text" type="submit" ><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

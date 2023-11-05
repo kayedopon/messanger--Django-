@@ -1,0 +1,42 @@
+<div class="menu-list">
+    {% include 'navbar.html' %}
+    <div class="room-list" id="room-list">
+        <div class="scroll-list">
+            {% for room in request.user.rooms.all %}
+            <a href="{% url 'room' room.id %}">
+                <div class="room">
+                    <div class="photo">
+                        <img class="image-photo" src="{{room.avatar.url}}" alt="photo">
+                    </div>
+                    <div class="content-block">
+                        <div class="first-block">
+                            <div class="room-name">{{room.name}}</div>
+                            {% if room.message_set.all.0.updated|date:"d.m.Y" == date|date:"d.m.Y" %}
+                            <div class="time">{{room.updated|date:"H:i"}}</div>
+                            {% else %}
+                            <div class="time">{{room.updated|date:"d.m.Y"}}</div>
+                            {% endif %}
+                        </div>
+                        <div class="second-block">
+                            {% if room.message_set.all.0 %}
+                            <div class="author">{{room.message_set.all.0.host.username}}</div>
+                            <div class="last-message">: {{room.message_set.all.0}}</div>
+                            {% else %}
+
+                            {% if room.host == request.user %}
+                            <div class="last-message">You have just created new room</div>
+                            {% else %}
+                            <div class="last-message">{{room.host.username}} havesddsfsdfsdfsdfsdffdd just created new room</div>
+                            {% endif %}
+
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>

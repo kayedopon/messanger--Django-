@@ -1,0 +1,20 @@
+{% extends 'main-layout.html' %}
+
+{% block content %}
+<div class="main">
+    {% include 'main/home_page/room-list.html' %}
+
+    {% if chosen == True %}
+
+    {% include 'main/home_page/room.html' %}
+    {% else %}
+    <div class="tip">
+        <div class="tip-box">
+            <h2>Select chat to start messaging</h2>
+        </div>
+    </div>
+    
+    {% endif %}
+</div>
+
+{% endblock content%}

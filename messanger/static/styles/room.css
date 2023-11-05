@@ -1,0 +1,143 @@
+.room-block {
+    width: calc(100vw - 305px);
+    height: 100vh;
+    border-left: #292825 solid 1px;
+    background-color: #21201e;
+}
+
+.brief-info {
+    height: 50px;
+    background-color: #292a2e;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.room-photo {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.image-photo-info {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.info-block {
+    width: calc(100vw - 370px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info-block .room-name {
+    font-size: 20px;
+}
+
+.room-participants {
+    font-size: 15px;
+}
+
+.room-functions .room-settings {
+    margin-right: 15px;
+}
+/* 
+.chat {
+    
+} */
+
+.scroll-chat {
+    height: calc(100vh - 107px);
+    overflow-y: auto;
+}
+
+.message {
+    margin-top: 10px;
+    padding-left: 15px;
+    display: flex;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.avatar .image-photo {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.message-content {
+    padding: 8px;
+    border-radius: 15px;
+    background-color: #292a2e;
+}
+
+.message-author {
+    min-width: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-second-block {
+    width: auto
+}
+
+.message-text {
+    max-width: 450px;
+    word-wrap: break-word;
+    white-space: normal;
+    
+}
+
+.message-body {
+    margin-bottom: 5px;
+}
+
+.message-time {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+
+.input-area {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.input-text {
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    background-color: #292a2e;
+    width: calc(100vw - 390px);
+    padding: 10px;
+    transition: border .2s;
+}
+ 
+.input-text:focus {
+    outline: none;
+    border: 3px solid #5c5852;
+}
+
+.send-text {
+    font-size: 20px;
+    margin-left: 10px;
+    background-color: #7f62a8;
+    border: none;
+    height: 50p;
+    width: 50px;
+    border-radius: 50%;
+    transition: background-color .3s;
+}
+
+.send-text:hover {
+    background-color: #230a4a;
+}
+

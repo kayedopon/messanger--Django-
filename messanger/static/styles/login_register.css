@@ -1,0 +1,90 @@
+.container{
+    color: #ffff;
+    margin-top: 150px;
+    width: 300px;
+    overflow: auto;
+    text-align: center;
+
+}
+
+.login-register {
+    border: 5px solid transparent;
+    border-radius: 50px;
+    background: linear-gradient(360deg, #736AFF, #EB796F 75%) border-box;
+    
+    overflow: hidden;
+}
+
+.title-block {
+    height: 50px;
+    display: flex;
+    justify-content:center;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(360deg, #EEA390 0%, #EB796F 43%, #EB796F 100%);
+    
+}
+.title-block p {
+    font-size: 30px;
+    margin-top: 7px;
+}
+
+.form-block {
+    margin-top: 5px;   
+}
+
+.form-block form {
+    display: inline-block;
+}
+
+.input-box {
+    display: grid;
+    margin-top: 10px;
+}
+
+.input-field {
+    height: 25px;
+    width: 200px;
+    background-color: #ffff;
+    border-style: none;
+    border: 2px solid #EB796F;
+    border-radius: 10px;
+}
+
+#login-button {
+    display: block;
+    align-items: center;
+}
+
+button {
+    background-color: #ffff;
+    height: 25px;
+    width: 80px;
+    border-style: none;
+    border: 2px solid #363280;
+    border-radius: 5px;
+}
+
+.link-block a {
+    width: 30px;
+    height: 30px;
+    text-decoration: none;
+    color: #3a3673;
+}
+
+.email-verification {
+    border-radius: 50px;
+    height: 200px;
+    
+    overflow: hidden;
+    background-color: #8781e6;
+    color: black;
+}
+
+.title {
+    height: 50px;
+    display: flex;
+    justify-content:center;
+    border-radius: 5px 5px 0 0;
+    background-color: #ffff;
+}
