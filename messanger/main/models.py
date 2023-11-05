@@ -40,6 +40,8 @@ class User(AbstractUser):
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(default=timezone.now)
     last_login = models.DateTimeField(blank=True, null=True)
+    friends = models.ManyToManyField("User", blank=True)
+    hide_email = models.BooleanField(default=False)
 
     objects = CustomUserManager()
 
@@ -53,7 +55,12 @@ class User(AbstractUser):
 
     def __str__(self) -> str:
         return self.email
-    
+
+
+class FriendRequest(models.Model):
+    from_user = models.ForeignKey(User, related_name="from_user", on_delete=models.CASCADE)
+    to_user = models.ForeignKey(User, related_name="to_user", on_delete=models.CASCADE)
+
     
 class Room(models.Model):
     host = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -63,7 +70,6 @@ class Room(models.Model):
     participants = models.ManyToManyField(User, related_name='rooms', blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
-    
 
     class Meta:
         ordering = ['-updated',]
@@ -71,6 +77,7 @@ class Room(models.Model):
     def __str__(self) -> str:
             return self.name
     
+
 class Message(models.Model):
     host = models.ForeignKey(User, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
