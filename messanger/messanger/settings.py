@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import json
 from pathlib import Path
 from datetime import timedelta
 
@@ -21,8 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+with open("config.json", "r") as r:
+    config = json.load(r)
 
+SECRET_KEY = config["secret_key"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get("DEBUG")) == "1"
 
@@ -33,9 +36,8 @@ if not DEBUG:
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'themrshayzoom882@gmail.com'
-EMAIL_HOST_PASSWORD = 'mbnacimleshgrwig'
-
+EMAIL_HOST_USER = config["email_host_user"]
+EMAIL_HOST_PASSWORD = config["email_host_password"]
 
 ASGI_APPLICATION = 'messanger.asgi.application'
 # Application definition
